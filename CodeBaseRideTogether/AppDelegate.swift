@@ -10,27 +10,43 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = ViewController()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    // MARK: - Application Lifecycle
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        // 应用程序即将进入非活动状态
+        // 例如：来电、短信等
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // 应用程序进入后台
+        // 在这里保存数据、释放资源等
     }
 
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // 应用程序即将进入前台
+        // 在这里恢复数据、重新加载资源等
+    }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // 应用程序变为活动状态
+        // 在这里重新开始任务、更新UI等
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // 应用程序即将终止
+        // 在这里进行最后的清理工作
+    }
 }
 
